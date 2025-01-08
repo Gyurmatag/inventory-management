@@ -18,6 +18,8 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright tests
+      env:
+        NEXT_APP_BASE_URL: 'https://inventory-management-wheat-nine.vercel.app/'
       run: npx playwright test
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}

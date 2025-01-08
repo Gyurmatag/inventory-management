@@ -1,8 +1,10 @@
 import { test, expect } from '@playwright/test';
 
+const baseUrl = process.env.NEXT_APP_BASE_URL || 'http://localhost:3000';
+
 test.describe('Stock Inventory Application', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('http://localhost:3000');
+    await page.goto(baseUrl);
   });
 
   test('should display the inventory list and add item form', async ({ page }) => {
